@@ -8,6 +8,10 @@ class Currency:
     """
 
     def __init__(self, name, code, symbol=None, digits=2):
+        self.name = name
+        self.code = code
+        self.symbol = symbol
+        self.digits = digits
         """
         Parameters:
         - name -- the English name of the currency
@@ -15,7 +19,7 @@ class Currency:
         - symbol - optional symbol used to designate currency
         - digits -- number of significant digits used
         """
-        pass
+        # pass
 
     def __str__(self):
         """
@@ -38,6 +42,8 @@ class Money:
     """
 
     def __init__(self, amount, currency):
+        self.amount = amount
+        self.currency = currency
         """
         Parameters:
         - amount -- quantity of currency
@@ -66,13 +72,17 @@ class Money:
                 self.currency == other.currency)
 
     def add(self, other):
+        new_amount = self.amount + other.amount
+        return Money(new_amount, self.currency)
         """
         Add two money objects of the same currency. If they have different
         currencies, raise a DifferentCurrencyError.
         """
-        pass
+        # pass
 
     def sub(self, other):
+        new_amount = self.amount - other.amount
+        return Money(new_amount, self.currency)
         """
         Subtract two money objects of the same currency. If they have different
         currencies, raise a DifferentCurrencyError.
@@ -80,12 +90,16 @@ class Money:
         pass
 
     def mul(self, multiplier):
+        # new_amount = self.amount * multiplier.amount
+        # return Money(new_amount, self.currency)
         """
         Multiply a money object by a number to get a new money object.
         """
         pass
 
     def div(self, divisor):
+        new_amount = self.amount / divisor.amount
+        return Money(new_amount, self.currency)
         """
         Divide a money object by a number to get a new money object.
         """
